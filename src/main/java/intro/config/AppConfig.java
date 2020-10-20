@@ -18,7 +18,7 @@ import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
         "intro.dao"
 })
 public class AppConfig {
-    private Environment environment;
+    private final Environment environment;
 
     public AppConfig(Environment environment) {
         this.environment = environment;

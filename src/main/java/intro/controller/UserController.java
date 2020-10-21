@@ -35,7 +35,6 @@ public class UserController {
         return userService.listUsers().stream()
                 .map(this::mapUserToDto)
                 .collect(Collectors.toList());
-        return userDtos;
     }
 
     private UserResponseDto mapUserToDto(User user) {

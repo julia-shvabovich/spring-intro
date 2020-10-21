@@ -27,19 +27,19 @@ public class UserController {
 
     @GetMapping("/{userId}")
     public UserResponseDto get(@PathVariable Long userId) {
-        UserResponseDto userDto = mapUserDto(userService.getById(userId));
+        UserResponseDto userDto = mapUserToDto(userService.getById(userId));
         return userDto;
     }
 
     @GetMapping
     public List<UserResponseDto> getAll() {
         List<UserResponseDto> userDtos = userService.listUsers().stream()
-                .map(user -> mapUserDto(user))
+                .map(user -> mapUserToDto(user))
                 .collect(Collectors.toList());
         return userDtos;
     }
 
-    private UserResponseDto mapUserDto(User user) {
+    private UserResponseDto mapUserToDto(User user) {
         UserResponseDto userResponseDto = new UserResponseDto();
         userResponseDto.setEmail(user.getEmail());
         userResponseDto.setPassword(user.getPassword());

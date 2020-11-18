@@ -7,4 +7,6 @@ public interface UserDao {
     void add(User user);
 
     List<User> getAll();
+
+    User getById(Long id);
 }
